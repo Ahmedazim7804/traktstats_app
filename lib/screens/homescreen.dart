@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:google_fonts/google_fonts.dart';
+import 'package:traktstats/widgets/allTimeTotals.dart';
+import 'package:traktstats/widgets/firstPlay.dart';
+
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -26,39 +27,11 @@ class Homescreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
-        body: FutureBuilder(
-          future: fetchData(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ClipOval(child: CachedNetworkImage(
-                    fit: BoxFit.cover,
-                    width: 50,
-                    height: 50,
-                    imageUrl: snapshot.data!['pfp']!,
-                    ),
-                  ),
-                  const SizedBox(width: 25,),
-                  Text(snapshot.data!['username']!, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),)
-                ],
-              ),
-              Text("All Time", style: GoogleFonts.abel(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 100, letterSpacing: -5)),
-              const Text("1923 -> 2023 STATS", style: TextStyle(color: Colors.white, fontSize: 25),),
-              TextButton(onPressed: () {}, style: TextButton.styleFrom(backgroundColor: const Color.fromARGB(255, 51, 56, 62)), child: const Text("CHOOSE YEARS", style: TextStyle(color: Colors.white),),)
-              ],
-            ),
-          );
-            }
-            else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          }
-        ),
+        body: ListView(shrinkWrap: true, children: const [
+            //WelcomeWidget(),
+            allTimeTotals(),
+            FirstPlay()
+          ],)
       ),
     );
   }
