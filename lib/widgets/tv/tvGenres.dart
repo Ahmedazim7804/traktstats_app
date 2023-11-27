@@ -74,20 +74,29 @@ class GenreBar extends StatelessWidget {
     final double barWidth = (genre.showCount / largestValue) * screenWidth;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(genre.genre, style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontWeight: FontWeight.bold),),
-          Text("${genre.showCount.toString()} SHOWS", style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontSize: 10 ),),
-          Container(
-            width: barWidth > 30 ? barWidth : 30, color: Colors.primaries[generatedColor],
-            child: Text('$percentage%', textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 15),),),
-          const SizedBox(height: 5,),
-          
-        ],
-      ),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+        child: Stack(
+          children: [
+            Container(
+              width: barWidth > 30 ? barWidth : 30, color: Colors.primaries[generatedColor],
+              height: 55,
+              alignment: Alignment.bottomCenter,
+              child: Text('$percentage%', style: const TextStyle(color: Colors.white, fontSize: 15),),),
+            Container(
+              margin: const EdgeInsets.fromLTRB(2, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
+              color: const Color.fromARGB(255, 15, 15, 15),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(genre.genre, style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontWeight: FontWeight.bold),),
+                  Text("${genre.showCount.toString()} SHOWS", style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontSize: 10 ),)
+                ]
+              )
+            )
+          ],
+        ),
     );
   }
 }
