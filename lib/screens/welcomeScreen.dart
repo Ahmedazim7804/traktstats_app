@@ -7,7 +7,7 @@ class WelcomeWidget extends StatelessWidget {
   const WelcomeWidget({super.key});
 
   Future<Map<String, String>> fetchData() async {
-    String baseurl = 'http://192.168.0.111:8455';
+    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/pfp')),
       http.get(Uri.parse('$baseurl/username')),
@@ -47,7 +47,7 @@ class WelcomeWidget extends StatelessWidget {
                   ],
                 ),
                 Text("All Time", style: GoogleFonts.abel(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 100, letterSpacing: -5)),
-                const Text("1923 -> 2023 STATS", style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'ProximaNova', letterSpacing: 2),),
+                const Text("1923 → 2023 STATS", style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'ProximaNova', letterSpacing: 2),),
                 TextButton(onPressed: () {}, style: TextButton.styleFrom(backgroundColor: const Color.fromARGB(255, 51, 56, 62)), child: const Text("CHOOSE YEARS", style: TextStyle(color: Colors.white),),)
                 ],
                             ),

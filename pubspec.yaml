@@ -39,6 +39,9 @@ dependencies:
   transparent_image: ^2.0.1
   cached_network_image: ^3.3.0
   google_fonts: ^6.1.0
+  dotted_line: ^3.2.2
+  fl_chart: ^0.65.0
+  syncfusion_flutter_charts: ^23.2.4
 
 dev_dependencies:
   flutter_test:
@@ -63,9 +66,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/trakt.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

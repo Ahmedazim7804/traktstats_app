@@ -6,7 +6,7 @@ class allTimeTotals extends StatelessWidget {
   const allTimeTotals({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.0.111:8455';
+    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/all_time_stats')),
     ]);
@@ -21,6 +21,7 @@ class allTimeTotals extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Container(
+                padding: const EdgeInsets.symmetric(vertical: 50),
                 color: Colors.grey.withAlpha(25),
                 child: Center(
                             child: Column(

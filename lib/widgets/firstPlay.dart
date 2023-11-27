@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:transparent_image/transparent_image.dart';
 
 class FirstPlay extends StatelessWidget {
   const FirstPlay({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.0.111:8455';
+    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/first_play')),
     ]);
@@ -21,12 +22,26 @@ class FirstPlay extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Container(
-                color: Colors.grey.withAlpha(25),
+                padding: const EdgeInsets.symmetric(vertical: 50),
                 child: Center(
                             child: Column(
                               children: [
                                 Container(padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: const Text("FIRST PLAY", style: TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
                                 const SizedBox(height: 25,),
+                                FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: snapshot.data!['movie_logo']!, placeholderCacheHeight: 256, placeholderCacheWidth: 256),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text('\ue628', style: TextStyle(fontFamily: 'Trakt', fontSize: 50, color: Colors.white),),
+                                    const SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(snapshot.data!['date'], style: const TextStyle(color: Colors.white, fontFamily: 'ProximaNova', fontSize: 17, fontWeight: FontWeight.bold),),
+                                        Text(snapshot.data!['time'], style: const TextStyle(color: Colors.white, fontFamily: 'ProximaNova'))
+                                      ])
+                                  ],
+                                )
                               ],
                             ),
                           ),
@@ -37,31 +52,5 @@ class FirstPlay extends StatelessWidget {
             }
           }
         );
-  }
-}
-
-class StatTextWidget extends StatelessWidget {
-  const StatTextWidget({super.key, required this.statName, required this.statValue});
-
-  final String statName;
-  final String statValue;
-
-  @override
-  Widget build(BuildContext context) {
-    TextStyle textStyle = const TextStyle(
-      color: Colors.white,
-      fontFamily: 'ProximaNova',
-      fontSize: 28,
-      fontWeight: FontWeight.bold
-    );
-
-    TextStyle subtitleTextStyle = const TextStyle(
-      fontFamily: 'trakt',
-      fontFamilyFallback: ['ProximaNova'],
-      fontWeight: FontWeight.bold,
-      fontSize: 11,
-      color: Colors.white60,
-    );
-    return Expanded(child: Column(children: [Text(statValue, style: textStyle), Text(statName, textAlign: TextAlign.center, style: subtitleTextStyle)]));
   }
 }
