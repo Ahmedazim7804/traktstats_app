@@ -5,6 +5,7 @@ import 'package:traktstats/widgets/firstPlay.dart';
 import 'package:traktstats/screens/welcomeScreen.dart';
 import 'package:traktstats/widgets/tv/tvCharts.dart';
 import 'package:traktstats/widgets/tv/tvGenres.dart';
+import 'package:traktstats/widgets/tv/tvReleasedYear.dart';
 import 'package:traktstats/widgets/tv/tvShowStats.dart';
 import 'package:traktstats/widgets/tv/tvTopShows.dart';
 import 'package:traktstats/widgets/tv/tvTraktMostWatchedShows.dart';
@@ -34,7 +35,7 @@ class Homescreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: ListView(shrinkWrap: true, children: const [
-            TvGenres()
+            TvReleasedYear()
             // WelcomeWidget(),
             // allTimeTotals(),
             // FirstPlay(),
