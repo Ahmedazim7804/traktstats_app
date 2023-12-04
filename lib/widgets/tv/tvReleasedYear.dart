@@ -13,7 +13,6 @@ class TvReleasedYear extends StatelessWidget {
     ]);
 
     Map<String, dynamic> tvReleasedYear = await jsonDecode(responses[0].body);
-    print(tvReleasedYear.entries);
 
     return tvReleasedYear;
   }
@@ -27,8 +26,9 @@ class TvReleasedYear extends StatelessWidget {
             if (snapshot.hasData) {
               return Container(
                 padding: const EdgeInsets.symmetric(vertical: 50),
-                child: Column(children: [ //FIXME: HOUR CONVERT TO AM AND PM INSTEAD OF NUMBER
-                  BarChartWidget(data: snapshot.data!, title: "EPISODE PLAYS BY YEAR'",),
+                child: Column(children: [
+                  Container(margin: const EdgeInsets.all(16),padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: const Text("TV SHOW RELEASE YEAR", style: TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
+                  BarChartWidget(data: snapshot.data!),
                 ],),
                 );
             }
@@ -41,10 +41,9 @@ class TvReleasedYear extends StatelessWidget {
 }
 
 class BarChartWidget extends StatelessWidget{
-  const BarChartWidget({super.key, required this.data, required this.title});
+  const BarChartWidget({super.key, required this.data});
 
   final Map<String, dynamic> data;
-  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +87,6 @@ class BarChartWidget extends StatelessWidget{
                 majorGridLines: const MajorGridLines(width: 0), 
             ),
         primaryXAxis: CategoryAxis(
-          title: AxisTitle(
-            text: title,
-            textStyle: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)
-          ),
           majorGridLines: const MajorGridLines(width: 0),
           labelPosition: ChartDataLabelPosition.outside,
           labelRotation: -75

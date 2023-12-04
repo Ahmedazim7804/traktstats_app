@@ -42,6 +42,8 @@ dependencies:
   dotted_line: ^3.2.2
   fl_chart: ^0.65.0
   syncfusion_flutter_charts: ^23.2.4
+  countries_world_map: ^1.1.1
+  syncfusion_flutter_maps: ^23.2.4
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/trakt.png
+    - assets/world-map.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

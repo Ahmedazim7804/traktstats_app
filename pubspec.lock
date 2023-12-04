@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+  countries_world_map:
+    dependency: "direct main"
+    description:
+      name: countries_world_map
+      sha256: "41b941768621dac3af76e3f5379f353baf9f6e329dc54e044e273d3d0bd56e4e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   crypto:
     dependency: transitive
     description:
@@ -381,6 +389,14 @@ packages:
     description:
       name: syncfusion_flutter_core
       sha256: "8a1220f978491f56431c66dacf1bb97bf2abcd1458b542fe0dfbf1a630c67260"
+      url: "https://pub.dev"
+    source: hosted
+    version: "23.2.4"
+  syncfusion_flutter_maps:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_maps
+      sha256: "22d5d2a38283ffda5a6758f850a9a79e2bbd52a3d48b02c7d66f17b03418602b"
       url: "https://pub.dev"
     source: hosted
     version: "23.2.4"
