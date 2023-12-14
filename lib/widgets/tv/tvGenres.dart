@@ -1,16 +1,14 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:syncfusion_flutter_charts/charts.dart';
 
 class TvGenres extends StatelessWidget {
-  const TvGenres({super.key});
+  const TvGenres({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<List<Genre>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/by_genre')),
     ]);

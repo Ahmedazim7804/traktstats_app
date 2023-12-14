@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bubble_chart:
+    dependency: "direct main"
+    description:
+      name: bubble_chart
+      sha256: "17ba1b3187dd93befc5999e403ac598bab022e2ef20e26550e5f9cf0e0efd675"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.0"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -195,6 +203,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
+  just_the_tooltip:
+    dependency: "direct main"
+    description:
+      name: just_the_tooltip
+      sha256: "7a081133d57285bfb41b331f411006d57b433d7b35772e6155745f6a7a09cb82"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.12"
   lints:
     dependency: transitive
     description:
@@ -291,6 +307,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
+  percent_indicator:
+    dependency: "direct main"
+    description:
+      name: percent_indicator
+      sha256: c37099ad833a883c9d71782321cb65c3a848c21b6939b6185f0ff6640d05814c
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.3"
   platform:
     dependency: transitive
     description:

@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class TvShowStats extends StatelessWidget {
-  const TvShowStats({super.key});
+  const TvShowStats({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/stats')),
     ]);

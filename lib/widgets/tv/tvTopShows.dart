@@ -1,15 +1,15 @@
 import 'dart:convert';
-import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 
 class TopTvShows extends StatelessWidget {
-  const TopTvShows({super.key});
+  const TopTvShows({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/users_top_10')),
     ]);

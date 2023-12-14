@@ -4,10 +4,11 @@ import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 
 class FirstPlay extends StatelessWidget {
-  const FirstPlay({super.key});
+  const FirstPlay({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/first_play')),
     ]);

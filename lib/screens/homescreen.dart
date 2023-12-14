@@ -1,52 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:traktstats/widgets/allTimeTotals.dart';
-import 'package:traktstats/widgets/firstPlay.dart';
-import 'package:traktstats/screens/welcomeScreen.dart';
-import 'package:traktstats/widgets/tv/tvCharts.dart';
-import 'package:traktstats/widgets/tv/tvCountriesMap.dart';
-import 'package:traktstats/widgets/tv/tvGenres.dart';
-import 'package:traktstats/widgets/tv/tvReleasedYear.dart';
-import 'package:traktstats/widgets/tv/tvShowStats.dart';
-import 'package:traktstats/widgets/tv/tvTopShows.dart';
-import 'package:traktstats/widgets/tv/tvTraktMostWatchedShows.dart';
+import 'package:traktstats/screens/mainscreen.dart';
 
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
-  Future<Map<String, String>> fetchData() async {
-    String baseurl = 'http://192.168.0.111:8455';
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/pfp')),
-      http.get(Uri.parse('$baseurl/username')),
-    ]);
-    String pfp = responses[0].body;
-    String username = responses[1].body;
-    return {
-      'pfp': pfp,
-      'username': username
-    };
-  }
-
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: ListView(shrinkWrap: true, children: const [
-          TvCountriesMap()
-          // WelcomeWidget(),
-          // allTimeTotals(),
-          // FirstPlay(),
-          // TvShowStats(),
-          // TvCharts(),
-          // TopTvShows(),
-          // TraktMostWatchedShows()
-          // TvReleasedYear()
-          ],)
-      ),
-    );
+    TextEditingController textController = TextEditingController();
+
+    void submit(TextEditingController controller) {
+      final String url = controller.text;
+
+      if (Uri.parse(url).isAbsolute) {
+        Navigator.push(context, MaterialPageRoute(builder: (BuildContext ctx) {return MainScreen(baseurl: url);}));
+      }
+    }
+
+    return Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/trakt.png'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextField(controller: textController, style: const TextStyle(color: Colors.white), cursorColor: Colors.white, decoration: const InputDecoration(hintText: "http://127.0.0.1:8455", hintStyle: TextStyle(color: Colors.white54), label: Text("Server Url", style: TextStyle(color: Colors.white)))),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: ElevatedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (ctx) => MainScreen(baseurl: textController.text)));}, style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(200, 235, 28, 36)), child: const Text("Submit", style: TextStyle(color: Colors.white),),),
+              )
+            ],
+          ),
+        );
+        // ListView(shrinkWrap: true, children: const [
+        //   WelcomeWidget(),
+        //   allTimeTotals(),
+        //   FirstPlay(),
+        //   TvShowStats(),
+        //   TvCharts(),
+        //   TopTvShows(),
+        //   TraktMostWatchedShows(),
+        //   TvGenres(),
+        //   TvReleasedYear(),
+        //   TvCountriesMap(),
+        //   TvListProgress(),
+        //   TvHighestRatedShows(),
+        //   TvAllRatings(),
+        //   ],)
   }
 }

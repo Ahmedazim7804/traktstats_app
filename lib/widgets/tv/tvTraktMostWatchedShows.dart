@@ -5,10 +5,11 @@ import 'package:http/http.dart' as http;
 
 
 class TraktMostWatchedShows extends StatelessWidget{
-  const TraktMostWatchedShows({super.key});
+  const TraktMostWatchedShows({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<Map<dynamic  , dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/trakt/most_watched_shows')),
     ]);
@@ -26,6 +27,7 @@ class TraktMostWatchedShows extends StatelessWidget{
         if (snapshot.hasData) {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(vertical: 16),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

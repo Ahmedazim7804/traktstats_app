@@ -4,10 +4,11 @@ import 'package:http/http.dart' as http;
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class TvReleasedYear extends StatelessWidget {
-  const TvReleasedYear({super.key});
+  const TvReleasedYear({super.key, required this.baseurl});
+
+  final String baseurl;
 
     Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/by_released_year')),
     ]);

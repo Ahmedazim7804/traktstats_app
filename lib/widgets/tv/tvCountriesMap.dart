@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'dart:math';
-import 'package:countries_world_map/countries_world_map.dart';
-import 'package:countries_world_map/data/maps/world_map.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 class TvCountriesMap extends StatelessWidget {
-  const TvCountriesMap({super.key});
+  const TvCountriesMap({super.key, required this.baseurl});
+
+  final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
-    String baseurl = 'http://192.168.1.10:8455';
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/by_country')),
     ]);
@@ -60,8 +58,34 @@ class TvCountriesMap extends StatelessWidget {
                       primaryValueMapper: (int index) => snapshot.data!.keys.elementAt(index),
                       shapeColorValueMapper: (int index) => getCountryColor(maxDiffMin, snapshot.data!.values.elementAt(index)),
                     ),
+                    zoomPanBehavior: MapZoomPanBehavior(
+                      enablePinching: true,
+                      enableDoubleTapZooming: true
+                    ),
                     color: const Color.fromARGB(255, 38, 42, 43),
                     strokeColor: Colors.black,
+                    tooltipSettings: const MapTooltipSettings(
+                      color: Colors.black
+                    ),
+                    shapeTooltipBuilder: (BuildContext ctx, int index) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          border: Border.all(color: Colors.white54),
+                          
+                        ),
+                        
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text( snapshot.data!.keys.elementAt(index), textAlign: TextAlign.center, style: GoogleFonts.varela(color: Colors.white70, fontWeight: FontWeight.bold, fontSize: 16), overflow: TextOverflow.ellipsis,),
+                            Text("${snapshot.data!.values.elementAt(index)} SHOWS", textAlign: TextAlign.center, style: GoogleFonts.varela(color: Colors.white54, fontWeight: FontWeight.bold, fontSize: 10)),
+                          ],
+                          
+                        ),
+                      );
+                    },
                     )
                   ])  
                 ],),
