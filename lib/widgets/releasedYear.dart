@@ -14,7 +14,10 @@ class ReleasedYear extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 50),
       child: Column(children: [
         Container(margin: const EdgeInsets.all(16),padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: Text("${tv ? "TV SHOW" : "MOVIE"} RELEASE YEAR", style: const TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
-        BarChartWidget(data: data),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: BarChartWidget(data: data),
+        ),
       ],),
     );
   }
@@ -54,10 +57,13 @@ class BarChartWidget extends StatelessWidget{
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: SfCartesianChart(
-        // zoomPanBehavior: ZoomPanBehavior(
-        //   enablePanning: true,
-        //   enablePinching: true
-        // ), 
+        
+        zoomPanBehavior: ZoomPanBehavior(
+          zoomMode: ZoomMode.x,
+          enablePinching: true,
+          maximumZoomLevel: 0.2,
+          enablePanning: true,
+        ),
         tooltipBehavior: TooltipBehavior(
           enable: true,
           builder: toolTipBuilder,
@@ -67,9 +73,12 @@ class BarChartWidget extends StatelessWidget{
                 majorGridLines: const MajorGridLines(width: 0), 
             ),
         primaryXAxis: CategoryAxis(
+          interval: 10,
+          // autoScrollingMode: AutoScrollingMode.start,
+          // autoScrollingDelta: 50,
           majorGridLines: const MajorGridLines(width: 0),
           labelPosition: ChartDataLabelPosition.outside,
-          labelRotation: -75
+          labelRotation: -75,
         ),
         plotAreaBorderWidth: 0,
         series: <ColumnSeries<MapEntry<String, dynamic>, String>>[

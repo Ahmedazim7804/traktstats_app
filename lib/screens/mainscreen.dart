@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
               PeopleWidget(baseurl: baseurl, url: 'actresses',),
               PeopleWidget(baseurl: baseurl, url: 'directors',),
               PeopleWidget(baseurl: baseurl, url: 'writers',),
-              
+
               ],),
         )
       ),
