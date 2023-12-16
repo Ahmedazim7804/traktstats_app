@@ -1,20 +1,20 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:traktstats/widgets/highestRated.dart';
+import 'package:traktstats/widgets/topItems.dart';
 
-class TvHighestRatedShows extends StatelessWidget {
-  const TvHighestRatedShows({super.key, required this.baseurl});
+class TopTvShows extends StatelessWidget {
+  const TopTvShows({super.key, required this.baseurl});
 
   final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
     var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/highest_rated')),
+      http.get(Uri.parse('$baseurl/tv/users_top_10')),
     ]);
-    Map<String, dynamic> highestRated = jsonDecode(responses[0].body);
+    Map<String, dynamic> userTopShows = jsonDecode(responses[0].body);
 
-    return highestRated;
+    return userTopShows;
   }
 
   @override
@@ -24,9 +24,7 @@ class TvHighestRatedShows extends StatelessWidget {
       future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-
-          return HighestRated(data: snapshot.data!, tv: true);
-          
+          return TopItems(data: snapshot.data!, tv: true,);
         }
         else {
           return const Center(child: CircularProgressIndicator());

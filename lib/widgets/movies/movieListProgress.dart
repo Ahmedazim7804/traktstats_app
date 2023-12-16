@@ -1,20 +1,23 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:traktstats/widgets/stats.dart';
 import 'package:http/http.dart' as http;
+import 'package:traktstats/widgets/listProgress.dart';
 
-class TvShowStats extends StatelessWidget {
-  const TvShowStats({super.key, required this.baseurl});
+class MovieListProgress extends StatelessWidget {
+  const MovieListProgress({super.key, required this.baseurl});
 
   final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
     var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/stats')),
+      http.get(Uri.parse('$baseurl/movies/list_progress')),
     ]);
-    Map<String, dynamic> tvShowStats = jsonDecode(responses[0].body);
-    return tvShowStats;
+
+    Map<String, dynamic> movieList = await jsonDecode(responses[0].body);
+
+    return movieList;
   }
+    
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,9 @@ class TvShowStats extends StatelessWidget {
           future: fetchData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Stats(data: snapshot.data!, tv: true);
+
+              return ListProgress(data: snapshot.data!, tv: false);
+
             }
             else {
               return const Center(child: CircularProgressIndicator());

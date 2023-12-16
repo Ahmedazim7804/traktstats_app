@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:traktstats/widgets/genres.dart';
 
-class TvGenres extends StatelessWidget {
-  const TvGenres({super.key, required this.baseurl});
+class MovieGenres extends StatelessWidget {
+  const MovieGenres({super.key, required this.baseurl});
 
   final String baseurl;
 
   Future<List<Genre>> fetchData() async {
     var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/by_genre')),
+      http.get(Uri.parse('$baseurl/movies/by_genre')),
     ]);
     Map<String, dynamic> showGenres = jsonDecode(responses[0].body);
 
@@ -25,7 +25,7 @@ class TvGenres extends StatelessWidget {
       future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Genres(data: snapshot.data!, tv: true);
+          return Genres(data: snapshot.data!, tv: false);
         }
         else {
           return const Center(child: CircularProgressIndicator());

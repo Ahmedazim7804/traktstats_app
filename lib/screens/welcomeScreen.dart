@@ -47,9 +47,10 @@ class WelcomeWidget extends StatelessWidget {
                     Text(snapshot.data!['username']!, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white, fontFamily: 'ProximaNova'),)
                   ],
                 ),
-                Text("All Time", style: GoogleFonts.abel(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 100, letterSpacing: -5)),
-                const Text("1923 → 2023 STATS", style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'ProximaNova', letterSpacing: 2),),
-                TextButton(onPressed: () {}, style: TextButton.styleFrom(shape: const RoundedRectangleBorder(), backgroundColor: const Color.fromARGB(255, 51, 56, 62)), child: const Text("CHOOSE YEARS", style: TextStyle(color: Colors.white),),)
+                const SizedBox(height: 16,),
+                Text("All Time Stats", textAlign: TextAlign.center,style: GoogleFonts.abel(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 100, height: 0.9, letterSpacing: -5)),
+                //const Text("STATS", style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'ProximaNova', letterSpacing: 2),),
+                //TextButton(onPressed: () {}, style: TextButton.styleFrom(shape: const RoundedRectangleBorder(), backgroundColor: const Color.fromARGB(255, 51, 56, 62)), child: const Text("CHOOSE YEARS", style: TextStyle(color: Colors.white),),)
                 ],
                             ),
                           ),

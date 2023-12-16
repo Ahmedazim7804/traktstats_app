@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 import 'package:traktstats/widgets/allRatings.dart';
 
 
-class TvAllRatings extends StatelessWidget {
-  const TvAllRatings({super.key, required this.baseurl});
+class MovieAllRatings extends StatelessWidget {
+  const MovieAllRatings({super.key, required this.baseurl});
 
   final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
     var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/all_ratings')),
+      http.get(Uri.parse('$baseurl/movies/all_ratings')),
     ]);
     Map<String, dynamic> allRatings = jsonDecode(responses[0].body);
     
@@ -32,7 +32,7 @@ class TvAllRatings extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
 
-            return AllRatings(data: snapshot.data!, tv: true);
+            return AllRatings(data: snapshot.data!, tv: false);
             
           }
           else {

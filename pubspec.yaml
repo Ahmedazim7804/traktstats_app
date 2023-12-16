@@ -76,6 +76,7 @@ flutter:
     - assets/images/TraktList.png
     - assets/images/IMDbList.png
     - assets/images/RollingStoneList.png
+    - assets/images/RedditList.png
     - assets/world-map.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

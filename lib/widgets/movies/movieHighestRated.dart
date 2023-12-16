@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:traktstats/widgets/highestRated.dart';
 
-class TvHighestRatedShows extends StatelessWidget {
-  const TvHighestRatedShows({super.key, required this.baseurl});
+class MovieHighestRated extends StatelessWidget {
+  const MovieHighestRated({super.key, required this.baseurl});
 
   final String baseurl;
 
   Future<Map<String, dynamic>> fetchData() async {
     var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/highest_rated')),
+      http.get(Uri.parse('$baseurl/movies/highest_rated')),
     ]);
     Map<String, dynamic> highestRated = jsonDecode(responses[0].body);
 
@@ -25,7 +25,7 @@ class TvHighestRatedShows extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
 
-          return HighestRated(data: snapshot.data!, tv: true);
+          return HighestRated(data: snapshot.data!, tv: false);
           
         }
         else {
