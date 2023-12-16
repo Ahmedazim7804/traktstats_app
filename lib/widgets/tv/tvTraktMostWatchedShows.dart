@@ -9,14 +9,16 @@ class TraktMostWatchedShows extends StatelessWidget{
 
   final String baseurl;
 
-  Future<Map<dynamic, dynamic>> fetchData() async {
+  Future<(Map<dynamic, dynamic>, String)> fetchData() async {
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/trakt/most_watched_shows')),
+      http.get(Uri.parse('$baseurl/username')),
     ]);
 
     Map<dynamic, dynamic> traktMostWatchedShows = jsonDecode(responses[0].body);
+    String username = responses[1].body;
     
-    return traktMostWatchedShows;
+    return (traktMostWatchedShows, username);
   }
 
   @override
@@ -25,7 +27,7 @@ class TraktMostWatchedShows extends StatelessWidget{
       future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return TraktMostWatched(data: snapshot.data!, tv: true);
+          return TraktMostWatched(data: snapshot.data!.$1, username: snapshot.data!.$2, tv: true);
         }
         else {
           return const Center(child: CircularProgressIndicator());

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TraktMostWatched extends StatelessWidget{
-  const TraktMostWatched({super.key, required this.data, required this.tv});
+  const TraktMostWatched({super.key, required this.data, required this.tv, required this.username});
 
   final Map<dynamic, dynamic> data;
   final bool tv;
+  final String username;
   
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class TraktMostWatched extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [ //FIXME: REPLACE "LISH" BY USERNAME AND YEAR
           Container(color: const Color.fromARGB(255, 26, 28, 29),child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Image.asset('assets/images/trakt.png', width: 64, height: 64,), Text("TOP ${tv ? "SHOWS" : "MOVIES"}", style: GoogleFonts.passionOne(color: const Color.fromARGB(255, 232, 230, 227), fontSize: 50))])),
-          Container(color: const Color.fromARGB(255, 16, 17, 17) , child: Text("The top ${tv ? "TV shows" : "movies"} watched by the Trakt community for all time. ${tv ? "TV shows" : "movies"} that LISH watched in 1942 → 2023 are highlighted.", style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontSize: 16), textAlign: TextAlign.center,)),
+          Container(color: const Color.fromARGB(255, 16, 17, 17) , child: Text("The top ${tv ? "TV shows" : "movies"} watched by the Trakt community for all time. ${tv ? "TV shows" : "movies"} that $username has watched are highlighted.", style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontSize: 16), textAlign: TextAlign.center,)),
           ListView(scrollDirection: Axis.vertical, controller: ScrollController(keepScrollOffset: false), shrinkWrap: true, children: data.entries.map((item) => ListItem(index: item.key, title: item.value['title'], plays: item.value['play_count'], watched: item.value['watched'])).toList())
         ],
       ),
