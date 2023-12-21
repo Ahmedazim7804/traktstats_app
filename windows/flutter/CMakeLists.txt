@@ -13,7 +13,7 @@ set(WRAPPER_ROOT "${EPHEMERAL_DIR}/cpp_client_wrapper")
 # === Flutter Library ===
 set(FLUTTER_LIBRARY "${EPHEMERAL_DIR}/flutter_windows.dll")
 
-# Pub***REMOVED***ed to parent scope for install step.
+# Published to parent scope for install step.
 set(FLUTTER_LIBRARY ${FLUTTER_LIBRARY} PARENT_SCOPE)
 set(FLUTTER_ICU_DATA_FILE "${EPHEMERAL_DIR}/icudtl.dat" PARENT_SCOPE)
 set(PROJECT_BUILD_DIR "${PROJECT_DIR}/build/" PARENT_SCOPE)

@@ -16,7 +16,7 @@ class TraktMostWatched extends StatelessWidget{
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [ //FIXME: REPLACE "LISH" BY USERNAME AND YEAR
+        children: [
           Container(color: const Color.fromARGB(255, 26, 28, 29),child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Image.asset('assets/images/trakt.png', width: 64, height: 64,), Text("TOP ${tv ? "SHOWS" : "MOVIES"}", style: GoogleFonts.passionOne(color: const Color.fromARGB(255, 232, 230, 227), fontSize: 50))])),
           Container(color: const Color.fromARGB(255, 16, 17, 17) , child: Text("The top ${tv ? "TV shows" : "movies"} watched by the Trakt community for all time. ${tv ? "TV shows" : "movies"} that $username has watched are highlighted.", style: const TextStyle(fontFamily: 'ProximaNova', color: Colors.white, fontSize: 16), textAlign: TextAlign.center,)),
           ListView(scrollDirection: Axis.vertical, controller: ScrollController(keepScrollOffset: false), shrinkWrap: true, children: data.entries.map((item) => ListItem(index: item.key, title: item.value['title'], plays: item.value['play_count'], watched: item.value['watched'])).toList())
