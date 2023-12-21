@@ -8,13 +8,15 @@ class TopTvShows extends StatelessWidget {
 
   final String baseurl;
 
-  Future<Map<String, dynamic>> fetchData() async {
+  Future<(Map<String, dynamic>, String)> fetchData() async {
     var responses = await Future.wait([
       http.get(Uri.parse('$baseurl/tv/users_top_10')),
+      http.get(Uri.parse('$baseurl/username')),
     ]);
     Map<String, dynamic> userTopShows = jsonDecode(responses[0].body);
+    String username = responses[1].body;
 
-    return userTopShows;
+    return (userTopShows, username);
   }
 
   @override
@@ -24,7 +26,7 @@ class TopTvShows extends StatelessWidget {
       future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return TopItems(data: snapshot.data!, tv: true,);
+          return TopItems(data: snapshot.data!.$1, username:snapshot.data!.$2 ,tv: true,);
         }
         else {
           return const Center(child: CircularProgressIndicator());
