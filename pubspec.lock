@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  bubble_chart:
-    dependency: "direct main"
-    description:
-      name: bubble_chart
-      sha256: "17ba1b3187dd93befc5999e403ac598bab022e2ef20e26550e5f9cf0e0efd675"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -73,14 +65,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  countries_world_map:
-    dependency: "direct main"
-    description:
-      name: countries_world_map
-      sha256: "41b941768621dac3af76e3f5379f353baf9f6e329dc54e044e273d3d0bd56e4e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.1"
   crypto:
     dependency: transitive
     description:
@@ -89,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.6"
   dotted_line:
     dependency: "direct main"
     description:
@@ -105,14 +81,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
-  equatable:
-    dependency: transitive
-    description:
-      name: equatable
-      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -145,14 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.1"
-  fl_chart:
-    dependency: "direct main"
-    description:
-      name: fl_chart
-      sha256: "5a74434cc83bf64346efb562f1a06eefaf1bcb530dc3d96a104f631a1eff8d79"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.65.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -192,14 +152,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  get_it:
-    dependency: "direct main"
-    description:
-      name: get_it
-      sha256: f79870884de16d689cf9a7d15eedf31ed61d750e813c538a6efb92660fea83c3
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.6.4"
   google_fonts:
     dependency: "direct main"
     description:
@@ -272,14 +224,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -368,14 +312,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.7"
-  provider:
-    dependency: "direct main"
-    description:
-      name: provider
-      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.1"
   rxdart:
     dependency: transitive
     description:
@@ -473,10 +409,10 @@ packages:
     dependency: transitive
     description:
       name: synchronized
-      sha256: "5fcbd27688af6082f5abd611af56ee575342c30e87541d0245f7ff99faa02c60"
+      sha256: "539ef412b170d65ecdafd780f924e5be3f60032a1128df156adad6c5b373d558"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.0+1"
   term_glyph:
     dependency: transitive
     description:
@@ -577,10 +513,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: df5a4d8f22ee4ccd77f8839ac7cb274ebc11ef9adcce8b92be14b797fe889921
+      sha256: "22c94e5ad1e75f9934b766b53c742572ee2677c56bc871d850a57dad0f82127f"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.1"
+    version: "4.2.2"
   vector_math:
     dependency: transitive
     description:
