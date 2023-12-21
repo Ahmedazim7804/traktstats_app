@@ -1,18 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/highestRated.dart';
 
 class MovieHighestRated extends StatelessWidget {
-  const MovieHighestRated({super.key, required this.baseurl});
-
-  final String baseurl;
+  const MovieHighestRated({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/movies/highest_rated')),
-    ]);
-    Map<String, dynamic> highestRated = jsonDecode(responses[0].body);
+
+    Map<String, dynamic> highestRated = await getData('movies/highest_rated');
 
     return highestRated;
   }

@@ -47,6 +47,10 @@ dependencies:
   bubble_chart: ^0.5.0
   percent_indicator: ^4.2.3
   just_the_tooltip: ^0.0.12
+  url_launcher: ^6.2.2
+  file_picker: ^6.1.1
+  provider: ^6.1.1
+  get_it: ^7.6.4
 
 dev_dependencies:
   flutter_test:

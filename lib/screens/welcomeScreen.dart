@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:traktstats/getData.dart';
 
 class WelcomeWidget extends StatelessWidget {
-  const WelcomeWidget({super.key, required this.baseurl});
-
-  final String baseurl;
+  const WelcomeWidget({super.key});
 
   Future<Map<String, String>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/pfp')),
-      http.get(Uri.parse('$baseurl/username')),
-    ]);
-    String pfp = responses[0].body;
-    String username = responses[1].body;
+    final String pfp = await getData<String>('pfp');
+    final String username = await getData('username');
+    
     return {
       'pfp': pfp,
       'username': username

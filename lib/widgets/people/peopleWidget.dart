@@ -1,15 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/people/personItem.dart';
 
 
 
 class PeopleWidget extends StatefulWidget {
-  const PeopleWidget({super.key, required this.baseurl, required this.url});
+  const PeopleWidget({super.key, required this.endpoint});
 
-  final String baseurl;
-  final String url;
+  final String endpoint;
 
   @override
   State<PeopleWidget> createState() => _PeopleWidgetState();
@@ -38,11 +36,7 @@ class _PeopleWidgetState extends State<PeopleWidget> {
 
   Future<List<dynamic>> fetchData() async {
 
-    var responses = await Future.wait([ 
-      http.get(Uri.parse('${widget.baseurl}/${widget.url}')),
-    ]);
-
-    List<dynamic> actors = await jsonDecode(responses[0].body);
+    List<dynamic> actors = await getData(widget.endpoint);
     
     return actors;
   }
@@ -70,7 +64,7 @@ class _PeopleWidgetState extends State<PeopleWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Column(
               children: [
-                Container(margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: Text("MOST WATCHED ${widget.url.toUpperCase()}", style: const TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
+                Container(margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: Text("MOST WATCHED ${widget.endpoint.toUpperCase()}", style: const TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
                 TextButton(onPressed: page > 0 ? scrollUp: null, child: Text(page > 0 ? "⤒ PREVIOUS ⤒" : "", style: const TextStyle(color: Colors.white, fontFamily: 'ProximaNova'),)),
                 GridView.builder(
                   physics: const ScrollPhysics(),

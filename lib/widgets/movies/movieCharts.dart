@@ -1,19 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/charts.dart';
 
 class MovieCharts extends StatelessWidget {
-  const MovieCharts({super.key, required this.baseurl});
+  const MovieCharts({super.key});
   
-  final String baseurl;
+  Future<Map<String, List<Data>>> fetchData() async {
 
-    Future<Map<String, List<Data>>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/movies/plays')),
-    ]);
-
-    Map<String, dynamic> movieChartData = await jsonDecode(responses[0].body);
+    Map<String, dynamic> movieChartData = await getData('movies/plays');
     
     final List<Data> byYear = [];
     final List<Data> byMonth = [];

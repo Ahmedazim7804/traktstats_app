@@ -1,19 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/countriesMap.dart';
 
 class TvCountriesMap extends StatelessWidget {
-  const TvCountriesMap({super.key, required this.baseurl});
-
-  final String baseurl;
+  const TvCountriesMap({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/by_country')),
-    ]);
 
-    Map<String, dynamic> tvCountriesMap = await jsonDecode(responses[0].body);
+    Map<String, dynamic> tvCountriesMap = await getData('tv/by_country');
     
     return tvCountriesMap;
   }

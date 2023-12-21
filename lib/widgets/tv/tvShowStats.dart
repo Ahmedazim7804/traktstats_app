@@ -1,19 +1,14 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/stats.dart';
-import 'package:http/http.dart' as http;
 
 class TvShowStats extends StatelessWidget {
-  const TvShowStats({super.key, required this.baseurl});
-
-  final String baseurl;
+  const TvShowStats({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/stats')),
-    ]);
-    Map<String, dynamic> tvShowStats = jsonDecode(responses[0].body);
-    return tvShowStats;
+    final data = await getData('tv/stats');
+
+    return data;
   }
 
   @override

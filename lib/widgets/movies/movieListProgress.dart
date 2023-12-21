@@ -1,19 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/listProgress.dart';
 
 class MovieListProgress extends StatelessWidget {
-  const MovieListProgress({super.key, required this.baseurl});
-
-  final String baseurl;
+  const MovieListProgress({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/movies/list_progress')),
-    ]);
 
-    Map<String, dynamic> movieList = await jsonDecode(responses[0].body);
+    Map<String, dynamic> movieList = await getData('movies/list_progress');
 
     return movieList;
   }

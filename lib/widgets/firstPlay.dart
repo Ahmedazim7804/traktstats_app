@@ -1,19 +1,14 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class FirstPlay extends StatelessWidget {
-  const FirstPlay({super.key, required this.baseurl});
-
-  final String baseurl;
+  const FirstPlay({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/first_play')),
-    ]);
-    Map<String, dynamic> allTimeStats = jsonDecode(responses[0].body);
-    return allTimeStats;
+    final firstPlay = await getData('first_play');
+    
+    return firstPlay;
   }
 
   @override

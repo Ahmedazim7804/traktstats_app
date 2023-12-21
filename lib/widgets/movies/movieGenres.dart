@@ -1,18 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/genres.dart';
 
 class MovieGenres extends StatelessWidget {
-  const MovieGenres({super.key, required this.baseurl});
-
-  final String baseurl;
+  const MovieGenres({super.key});
 
   Future<List<Genre>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/movies/by_genre')),
-    ]);
-    Map<String, dynamic> showGenres = jsonDecode(responses[0].body);
+
+    Map<String, dynamic> showGenres = await getData('movies/by_genre');
 
     List<Genre> listGenres = showGenres.entries.map((entry) => Genre(genre: entry.key, showCount: int.parse(entry.value.toString()))).toList();
     return listGenres;

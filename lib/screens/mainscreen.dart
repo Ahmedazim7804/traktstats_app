@@ -26,49 +26,47 @@ import 'package:traktstats/widgets/people/peopleWidget.dart';
 
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key, required this.baseurl});
-
-  final String baseurl;
+  const MainScreen({super.key});
   
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           child: Column(children: [
 
-              WelcomeWidget(baseurl: baseurl),
-              allTimeTotals(baseurl: baseurl),
-              FirstPlay(baseurl: baseurl),
+              WelcomeWidget(),
+              allTimeTotals(),
+              FirstPlay(),
 
-              TvShowStats(baseurl: baseurl),
-              TvCharts(baseurl: baseurl),
-              TopTvShows(baseurl: baseurl),
-              TraktMostWatchedShows(baseurl: baseurl),
-              TvGenres(baseurl: baseurl),
-              TvReleasedYear(baseurl: baseurl),
-              TvCountriesMap(baseurl: baseurl),
-              TvListProgress(baseurl: baseurl),
-              TvHighestRatedShows(baseurl: baseurl),
-              TvAllRatings(baseurl: baseurl),
+              TvShowStats(),
+              TvCharts(),
+              TopTvShows(),
+              TraktMostWatchedShows(),
+              TvGenres(),
+              TvReleasedYear(),
+              TvCountriesMap(),
+              TvListProgress(),
+              TvHighestRatedShows(),
+              TvAllRatings(),
 
-              MovieStats(baseurl: baseurl),
-              MovieCharts(baseurl: baseurl),
-              TopMovies(baseurl: baseurl),
-              TraktMostWatchedMovies(baseurl: baseurl),
-              MovieGenres(baseurl: baseurl),
-              MoviesReleasedYear(baseurl: baseurl),
-              MovieCountriesMap(baseurl: baseurl),
-              MovieListProgress(baseurl: baseurl),
-              MovieHighestRated(baseurl: baseurl),
-              MovieAllRatings(baseurl: baseurl),
+              MovieStats(),
+              MovieCharts(),
+              TopMovies(),
+              TraktMostWatchedMovies(),
+              MovieGenres(),
+              MoviesReleasedYear(),
+              MovieCountriesMap(),
+              MovieListProgress(),
+              MovieHighestRated(),
+              MovieAllRatings(),
 
-              PeopleWidget(baseurl: baseurl, url: 'actors',),
-              PeopleWidget(baseurl: baseurl, url: 'actresses',),
-              PeopleWidget(baseurl: baseurl, url: 'directors',),
-              PeopleWidget(baseurl: baseurl, url: 'writers',),
+              PeopleWidget(endpoint: 'actors'),
+              PeopleWidget(endpoint: 'actresses'),
+              PeopleWidget(endpoint: 'directors',),
+              PeopleWidget(endpoint: 'writers'),
 
               ],),
         )

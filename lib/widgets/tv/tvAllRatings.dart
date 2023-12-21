@@ -1,20 +1,15 @@
 import 'dart:collection';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:traktstats/getData.dart';
 import 'package:traktstats/widgets/allRatings.dart';
 
 
 class TvAllRatings extends StatelessWidget {
-  const TvAllRatings({super.key, required this.baseurl});
-
-  final String baseurl;
+  const TvAllRatings({super.key});
 
   Future<Map<String, dynamic>> fetchData() async {
-    var responses = await Future.wait([
-      http.get(Uri.parse('$baseurl/tv/all_ratings')),
-    ]);
-    Map<String, dynamic> allRatings = jsonDecode(responses[0].body);
+
+    Map<String, dynamic> allRatings = await getData('tv/all_ratings');
     
     allRatings = Map.from(allRatings)..removeWhere((key, value) => (value == 0));
     
