@@ -18,3 +18,7 @@ Then select that file in the app.
   <img src="screenshots/4.png" alt="Screenshot Gallery" width="160"/>
   <img src="screenshots/5.png" alt="Screenshot Gallery" width="160"/>
 </p>
+
+# Permissions
+- No permissions are requested.
+- App only require Internet permission to fetch images needed from internet at runtime.
