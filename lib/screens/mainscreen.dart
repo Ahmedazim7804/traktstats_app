@@ -14,7 +14,7 @@ import 'package:traktstats/widgets/tv/tvHighestRated.dart';
 import 'package:traktstats/widgets/tv/tvListProgress.dart';
 import 'package:traktstats/widgets/allTimeTotals.dart';
 import 'package:traktstats/widgets/firstPlay.dart';
-import 'package:traktstats/screens/welcomeScreen.dart';
+import 'package:traktstats/widgets/welcomeScreen.dart';
 import 'package:traktstats/widgets/tv/tvCharts.dart';
 import 'package:traktstats/widgets/tv/tvCountriesMap.dart';
 import 'package:traktstats/widgets/tv/tvGenres.dart';
