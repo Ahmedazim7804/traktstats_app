@@ -91,11 +91,14 @@ class Homescreen extends StatelessWidget {
                 child: ElevatedButton(onPressed: submit, style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(200, 235, 28, 36)), child: const Text("Submit", style: TextStyle(color: Colors.white),),),
               ),
               const Text("OR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
+              const SizedBox(height: 32,),
               Row(
                 mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(width: 50,),
+                  ElevatedButton(onPressed: selectFile, style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(200, 235, 28, 36)), child: const Text("Select json file", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),),),
                   IconButton(icon: const Icon(Icons.help), onPressed: () {showDialog(context: context, builder: infoDialog);}),
-                  ElevatedButton(onPressed: selectFile, style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(200, 235, 28, 36)), child: const Text("Select json file", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),),)
                 ],
               )
             ],
