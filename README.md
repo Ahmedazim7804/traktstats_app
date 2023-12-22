@@ -9,8 +9,12 @@ Generate `all-time-stats.json` file using this [program](https://github.com/Ahme
 Then select that file in the app.
 
 # Screenshots
-<img src="screenshots/1.png" alt="Screenshot Gallery" width="160"/>
-<img src="screenshots/2.png" alt="Screenshot Gallery" width="160"/>
-<img src="screenshots/3.png" alt="Screenshot Gallery" width="160"/>
-<img src="screenshots/4.png" alt="Screenshot Gallery" width="160"/>
-<img src="screenshots/5.png" alt="Screenshot Gallery" width="160"/>
+<p float="left">
+  <img src="screenshots/1.png" alt="Screenshot Gallery" width="160"/>
+  <img src="screenshots/2.png" alt="Screenshot Gallery" width="160"/>
+  <img src="screenshots/3.png" alt="Screenshot Gallery" width="160"/>
+</p>
+<p float="left">
+  <img src="screenshots/4.png" alt="Screenshot Gallery" width="160"/>
+  <img src="screenshots/5.png" alt="Screenshot Gallery" width="160"/>
+</p>
