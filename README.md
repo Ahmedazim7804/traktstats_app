@@ -1,16 +1,16 @@
-# traktstats
+<img src="assets/images/trakt.png" alt="Screenshot Gallery" width="160"/>
 
-A new Flutter project.
+# Trakt All Time Stats
+This app shows trakt [all-time-stats](https://blog.trakt.tv/all-time-year-in-review-f6f931e4461d) like the official version without the need of trakt vip subscription.
 
-## Getting Started
+# Usage
+Generate `all-time-stats.json` file using this [program](https://github.com/Ahmedazim7804/trakt_vip_stats).
+<br />
+Then select that file in the app.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Screenshots
+<img src="screenshots/1.png" alt="Screenshot Gallery" width="160"/>
+<img src="screenshots/2.png" alt="Screenshot Gallery" width="160"/>
+<img src="screenshots/3.png" alt="Screenshot Gallery" width="160"/>
+<img src="screenshots/4.png" alt="Screenshot Gallery" width="160"/>
+<img src="screenshots/5.png" alt="Screenshot Gallery" width="160"/>
