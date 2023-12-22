@@ -1,4 +1,4 @@
-package com.example.traktstats
+package com.traktstats.vip
 
 import io.flutter.embedding.android.FlutterActivity
 
