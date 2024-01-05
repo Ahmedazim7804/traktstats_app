@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:traktstats/getData.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FirstPlay extends StatelessWidget {
   const FirstPlay({super.key});
@@ -24,7 +25,7 @@ class FirstPlay extends StatelessWidget {
                               children: [
                                 Container(padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 48, 52, 54))), child: const Text("FIRST PLAY", style: TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20),)),
                                 const SizedBox(height: 25,),
-                                FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: snapshot.data!['movie_logo']!, placeholderCacheHeight: 256, placeholderCacheWidth: 256),
+                                snapshot.data!['movie_logo'] != null ? FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: snapshot.data!['movie_logo']!, placeholderCacheHeight: 256, placeholderCacheWidth: 256) : Text(snapshot.data!['movie'], style: GoogleFonts.lexend(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
