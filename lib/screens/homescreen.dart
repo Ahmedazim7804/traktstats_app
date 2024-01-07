@@ -6,6 +6,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:traktstats/provider/operationMode.dart';
 import 'package:traktstats/screens/mainscreen.dart';
+import 'package:flutter/foundation.dart';
 
 
 class Homescreen extends StatelessWidget {
@@ -63,10 +64,20 @@ class Homescreen extends StatelessWidget {
     }
 
     void selectFile() async {
+      
       FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+
       if (result != null) {
-        File file = File(result.files.single.path!);
-        Model.fileData = await readJsonFromFile(file);
+
+        if (kIsWeb) {
+
+          Model.fileData = jsonDecode(utf8.decode(result.files.single.bytes!));
+
+        } else {
+          File file = File(result.files.single.path!);
+          Model.fileData = await readJsonFromFile(file);
+        }
       
         if (Model.fileData.isNotEmpty) {
           Model.operationMode = OperationModes.file;
