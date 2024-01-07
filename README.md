@@ -6,7 +6,8 @@ This app shows trakt [all-time-stats](https://blog.trakt.tv/all-time-year-in-rev
 # Usage
 Generate `all-time-stats.json` file using this [program](https://github.com/Ahmedazim7804/trakt_vip_stats).
 <br />
-Then select that file in the app.
+Then select that file in the app.<br />
+Or you can use the hosted [app](https://traktstats.netlify.app/) (NOTE:- not yet optimized for web).
 
 # Screenshots
 <p float="left">
